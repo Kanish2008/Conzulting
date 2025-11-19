@@ -1938,16 +1938,8 @@
             const smsMessage = `Ny henvendelse fra Conzulting UB:\n\nNavn: ${navn}\nTelefon: ${telefon}\nBedrift: ${bedrift || 'Ikke oppgitt'}\n\nMelding:\n${melding}`;
             const smsLink = `sms:+4791286504?body=${encodeURIComponent(smsMessage)}`;
             
-            window.open(smsLink, '_blank');
-            
-            // Close modal and show success
-            document.getElementById('choiceModal').classList.remove('show');
-            document.getElementById('successMessage').classList.add('show');
-            document.getElementById('contactForm').reset();
-            
-            setTimeout(() => {
-                document.getElementById('successMessage').classList.remove('show');
-            }, 5000);
+            // Use direct navigation instead of window.open
+            window.location.href = smsLink;
         });
 
         // Email Choice
@@ -1957,16 +1949,8 @@
             const emailBody = `Hei Melak,\n\nDu har mottatt en ny henvendelse via Conzulting UB nettside:\n\nNavn: ${navn}\nTelefonnummer: ${telefon}\nBedriftsnavn: ${bedrift || 'Ikke oppgitt'}\n\nMelding:\n${melding}\n\nMed vennlig hilsen,\nConzulting UB Nettside`;
             const emailLink = `mailto:Melakkasim@icloud.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
             
-            window.open(emailLink, '_blank');
-            
-            // Close modal and show success
-            document.getElementById('choiceModal').classList.remove('show');
-            document.getElementById('successMessage').classList.add('show');
-            document.getElementById('contactForm').reset();
-            
-            setTimeout(() => {
-                document.getElementById('successMessage').classList.remove('show');
-            }, 5000);
+            // Use direct navigation instead of window.open
+            window.location.href = emailLink;
         });
 
         // Enhanced header scroll effect
