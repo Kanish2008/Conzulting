@@ -194,47 +194,124 @@
 
         @media (max-width: 968px) {
             nav ul {
-                gap: 20px;
+                gap: 15px;
+                font-size: 14px;
+            }
+            .logo {
+                width: 75px;
+                height: 75px;
+            }
+            .logo-text {
+                font-size: 16px;
             }
             .hero {
-                padding: 80px 5%;
+                padding: 60px 5%;
             }
             .section {
-                padding: 80px 5%;
+                padding: 60px 5%;
             }
             .hero-logo {
-                width: 150px;
-                height: 150px;
+                width: 200px;
+                height: 200px;
+            }
+            h1 {
+                font-size: 38px;
+            }
+            .section-title {
+                font-size: 36px;
+            }
+            .stats-container {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
             }
         }
 
         @media (max-width: 640px) {
             nav ul {
-                flex-direction: column;
-                gap: 15px;
+                gap: 10px;
+                font-size: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            nav a {
+                font-size: 13px;
+                padding: 6px 0;
             }
             header {
-                padding: 20px 5%;
+                padding: 15px 4%;
             }
             .logo {
-                width: 70px;
-                height: 70px;
+                width: 60px;
+                height: 60px;
+            }
+            .logo-text {
+                font-size: 14px;
             }
             .hero {
-                padding: 60px 5%;
+                padding: 40px 4%;
             }
             .section {
-                padding: 60px 5%;
+                padding: 50px 4%;
             }
             .hero-logo {
-                width: 120px;
-                height: 120px;
+                width: 180px;
+                height: 180px;
             }
             .section-title {
-                font-size: 32px;
+                font-size: 28px;
+                line-height: 1.2;
+            }
+            .section-subtitle {
+                font-size: 15px;
             }
             h1 {
+                font-size: 28px;
+                line-height: 1.3;
+            }
+            .hero p {
+                font-size: 15px;
+            }
+            .cta-button {
+                padding: 16px 35px;
+                font-size: 16px;
+            }
+            .stat-number {
                 font-size: 36px;
+            }
+            .stat-label {
+                font-size: 14px;
+            }
+            .stats-container {
+                gap: 20px;
+            }
+            .feature-item {
+                padding: 30px 25px;
+            }
+            .feature-item h4 {
+                font-size: 18px;
+            }
+            .service-card {
+                padding: 35px 25px;
+            }
+            .service-card h3 {
+                font-size: 22px;
+            }
+            .service-card p {
+                font-size: 14px;
+            }
+            .service-icon {
+                width: 65px;
+                height: 65px;
+            }
+            .contact-form {
+                padding: 35px 25px;
+            }
+            button[type="submit"] {
+                padding: 16px 35px;
+                font-size: 16px;
             }
         }
 
@@ -902,6 +979,9 @@
             background-clip: text;
             text-decoration: none;
             transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            z-index: 10;
         }
 
         .client-card h3 a:hover {
@@ -914,19 +994,23 @@
             align-items: center;
             gap: 8px;
             color: var(--primary-teal);
-            text-decoration: none;
+            text-decoration: underline;
             font-weight: 600;
             padding: 12px 24px;
             background: linear-gradient(135deg, rgba(42, 124, 142, 0.1), rgba(95, 173, 86, 0.1));
             border-radius: 8px;
             transition: all 0.3s;
             margin-top: 8px;
+            cursor: pointer;
+            position: relative;
+            z-index: 10;
         }
 
         .client-card p a:hover {
             background: linear-gradient(135deg, var(--primary-teal), var(--primary-green));
             color: white;
             transform: translateX(4px);
+            text-decoration: none;
         }
 
         .client-card p {
@@ -1256,11 +1340,137 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Survey Banner */
+        .survey-banner {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, var(--primary-teal), var(--primary-green));
+            color: white;
+            padding: 25px 30px;
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(42, 124, 142, 0.4), 0 0 30px rgba(42, 124, 142, 0.2);
+            z-index: 1000;
+            max-width: 350px;
+            animation: slideIn 0.6s ease-out, pulse 3s ease-in-out infinite 2s;
+            border: 3px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .survey-banner-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            line-height: 1;
+        }
+
+        .survey-banner-close:hover {
+            background: rgba(255,255,255,0.4);
+            transform: rotate(90deg);
+        }
+
+        .survey-banner h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            font-weight: 800;
+        }
+
+        .survey-banner p {
+            font-size: 15px;
+            margin-bottom: 18px;
+            line-height: 1.5;
+            opacity: 0.95;
+        }
+
+        .survey-banner-btn {
+            display: inline-block;
+            background: white;
+            color: var(--primary-teal);
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .survey-banner-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 15px 40px rgba(42, 124, 142, 0.4), 0 0 30px rgba(42, 124, 142, 0.2);
+            }
+            50% {
+                box-shadow: 0 15px 40px rgba(42, 124, 142, 0.6), 0 0 50px rgba(42, 124, 142, 0.4);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .survey-banner {
+                bottom: 15px;
+                right: 15px;
+                left: 15px;
+                max-width: none;
+                padding: 20px 20px 25px 20px;
+            }
+            .survey-banner h3 {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+            .survey-banner p {
+                font-size: 14px;
+                margin-bottom: 15px;
+            }
+            .survey-banner-btn {
+                padding: 11px 20px;
+                font-size: 14px;
+                display: block;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Scroll Progress Bar -->
     <div id="scrollProgress" style="position: fixed; top: 0; left: 0; width: 0%; height: 4px; background: linear-gradient(90deg, var(--primary-teal), var(--primary-green)); z-index: 9999; transition: width 0.1s;"></div>
+    
+    <!-- Survey Banner -->
+    <div class="survey-banner" id="surveyBanner">
+        <button class="survey-banner-close" onclick="document.getElementById('surveyBanner').style.display='none'">×</button>
+        <h3>📋 Din mening teller!</h3>
+        <p>Hjelp oss å forbedre Kloden Teater. Delta i vår undersøkelse - det tar bare 2 minutter!</p>
+        <a href="https://forms.office.com/e/DZMvpxJpbr" target="_blank" class="survey-banner-btn">Delta nå →</a>
+    </div>
     
     <!-- Header -->
     <header>
@@ -1433,12 +1643,12 @@
             
             <div class="client-card reveal">
                 <img src="kloden.jpg" alt="Kloden Teater Logo" class="client-logo">
-                <h3><a href="https://klodenteater.no" target="_blank" rel="noopener noreferrer">Kloden Teater</a></h3>
+                <h3><a href="https://www.kloden.no/" target="_blank" rel="noopener noreferrer" style="cursor: pointer;">Kloden Teater</a></h3>
                 <p>Kloden Teater er Norges nye, pulserende scene for barn og unge – et sted der sterke historier, modige uttrykk og viktig kunst får plass. Her møtes unge publikummere, profesjonelle kunstnere og hele bydelen til forestillinger, festivaler og kreative prosjekter som setter fantasi og samfunnsengasjement i sving.</p>
                 <p>Kloden bygger nå et helt nytt teaterhus på Økern, et framtidsrettet kunstnerisk kraftsenter som åpner dørene for morgendagens stemmer. Dette er stedet for alle som vil oppleve scenekunst som berører, utfordrer og samler.</p>
                 <p><strong>Vi er stolte av å bidra med bærekraftsrådgivning til Kloden Teater i deres arbeid med å skape en miljøvennlig og ansvarlig kulturarena.</strong></p>
-                <p><a href="https://klodenteater.no" target="_blank" rel="noopener noreferrer">Besøk Kloden Teater →</a></p>
-                <p><a href="https://forms.office.com/e/DZMvpxJpbr" target="_blank" rel="noopener noreferrer" style="color: var(--primary-green); font-weight: 600;">📋 Delta i vår undersøkelse om Kloden Teater →</a></p>
+                <p><a href="https://www.kloden.no/" target="_blank" rel="noopener noreferrer" style="display: inline-block; cursor: pointer; text-decoration: underline;">Besøk Kloden Teater →</a></p>
+                <p><a href="https://forms.office.com/e/DZMvpxJpbr" target="_blank" rel="noopener noreferrer" style="color: var(--primary-green); font-weight: 600; display: inline-block; cursor: pointer; text-decoration: underline;">📋 Delta i vår undersøkelse om Kloden Teater →</a></p>
             </div>
         </div>
     </section>
@@ -1586,7 +1796,7 @@
                 window.open(smsLink, '_blank');
                 
                 // Open Email client with pre-filled email
-                const emailLink = `mailto:Eksempel@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+                const emailLink = `mailto:Melakkasim@icloud.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
                 setTimeout(() => {
                     window.open(emailLink, '_blank');
                 }, 500);
